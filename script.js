@@ -7,8 +7,10 @@ Promise.all([
   faceapi.nets.faceExpressionNet.loadFromUri('/models')
 ]).then(startVideo)
 
+
+
 function startVideo() {
-  MediaDevices.getUserMedia()(
+ stream = await navigator.mediaDevices.getUserMedia(
     { video: {} },
     stream => video.srcObject = stream,
     err => console.error(err)
